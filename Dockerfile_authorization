@@ -1,0 +1,8 @@
+# Docker file authorization
+FROM python:3
+ADD requirements.txt .
+RUN pip install -r requirements.txt
+RUN mkdir /logs
+ADD test.py .
+ADD authorization_test.py .
+CMD [ "python3", "authorization_test.py" ]

@@ -13,34 +13,45 @@ services:
       context: .
       dockerfile: Dockerfile_authentication
     volumes:
-      - log_volume:/logs
+    - type: volume
+      source: log_volume
+      target: /app/logs
     environment:
       - LOG=1
     networks:
       - mynetwork
+    depends_on:
+      - fastapi_server
 
   authorization_test:
     build:
       context: .
       dockerfile: Dockerfile_authorization
     volumes:
-       - log_volume:/logs
+    - type: volume
+      source: log_volume
+      target: /app/logs
     environment:
       - LOG=1
     networks:
       - mynetwork
+    depends_on:
+      - fastapi_server
 
   content_test:
     build:
       context: .
       dockerfile: Dockerfile_content
     volumes:
-      - log_volume:/logs
+    - type: volume
+      source: log_volume
+      target: /app/logs
     environment:
       - LOG=1
     networks:
       - mynetwork
-
+    depends_on:
+      - fastapi_server
 
 volumes:
   log_volume:

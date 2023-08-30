@@ -1,10 +1,12 @@
 version: '3'
 services:
+
+
   fastapi_server:
     image: datascientest/fastapi:1.0.0
+    container_name: fastapi
     ports:
       - "8000:8000"
-    restart: always
     networks:
       - mynetwork
 
@@ -12,10 +14,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_authentication
+    container_name: authentication_test
     volumes:
-    - type: volume
-      source: log_volume
-      target: /app/logs
+      - log_volume:/authentication_test/logs
     environment:
       - LOG=1
     networks:
@@ -27,10 +28,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_authorization
+    container_name: authorization_test
     volumes:
-    - type: volume
-      source: log_volume
-      target: /app/logs
+      - log_volume:/authorization_test/logs
     environment:
       - LOG=1
     networks:
@@ -42,10 +42,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_content
+    container_name: content_test
     volumes:
-    - type: volume
-      source: log_volume
-      target: /app/logs
+      - log_volume:/content_test/logs
     environment:
       - LOG=1
     networks:

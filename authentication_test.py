@@ -7,7 +7,9 @@ auth_tests = [
     ('test_user', 'password2')
 ]
 
+test_type = "authentication_test"
+
 for username, password in auth_tests:
     params = {'username': username, 'password': password}
     response = send_request('permissions', params)
-    generate_and_log_output('Authentication test', 'permissions', username, password, response.status_code)
+    generate_and_log_output(test_type, 'permissions', username, password, response.status_code)

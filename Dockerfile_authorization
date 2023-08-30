@@ -2,7 +2,7 @@
 FROM python:3
 ADD requirements.txt .
 RUN pip install -r requirements.txt
-RUN mkdir -p /app/logs
+RUN mkdir -p /authorization_test/logs
 ADD test.py .
 ADD authorization_test.py .
-CMD [ "python3", "test.py", "authorization_test.py" ]
+CMD python3 authorization_test.py

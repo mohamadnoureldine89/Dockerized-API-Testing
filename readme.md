@@ -24,4 +24,4 @@ The project contains the following files:
 
 ## Note
 
-The scripts are set up to test a FastAPI server running on localhost:8000. Make sure the server is up and running before starting the tests.
+The scripts are set up to test a FastAPI server running on fastapi:8000.

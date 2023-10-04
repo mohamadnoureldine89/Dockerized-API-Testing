@@ -1,4 +1,4 @@
-# Project Title: Dockerized API Testing
+# Dockerized API Testing
 
 - This project contains a set of scripts that are used to test different aspects of a FastAPI server.
 - The tests include authentication, authorization, and content tests. 
